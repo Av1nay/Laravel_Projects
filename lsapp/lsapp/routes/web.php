@@ -39,5 +39,7 @@ Route::get('/', 'PagesController@index');
 Route::get('/about','PagesController@about');
 //call pages services.blade.php
 Route::get('/services','PagesController@services');
+//route map postscontroller  
+Route::resource('posts','PostsController');
 
 

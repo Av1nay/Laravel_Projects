@@ -7,15 +7,18 @@
     
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Laravel-Projects/lsapp/lsapp/public/">Home </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Laravel-Projects/lsapp/lsapp/public/about">About</a>
+                    <a class="nav-link" href="about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Laravel-Projects/lsapp/lsapp/public/services">Services</a>
+                    <a class="nav-link" href="services">Services</a>
                 </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="posts">Blog</a>
+                    </li>
             </ul>
         </div>
     </div>
