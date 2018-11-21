@@ -20,6 +20,11 @@
                         <a class="nav-link" href="posts">Blog</a>
                     </li>
             </ul>
+            <ul class="navbar navbar-nav navbar-right">
+                <li>
+                    <a href="/posts/create" class="nav-link">Create Post</a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
