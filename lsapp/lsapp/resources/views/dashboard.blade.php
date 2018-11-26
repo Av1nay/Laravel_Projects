@@ -13,11 +13,8 @@
                         </div>
                     @endif
                         <a href="posts/create" class="btn btn-primary">Create Post</a>
-                        <br>
-                        <br>
                         <hr>
                         <h3>My Blogs</h3>
-                        <hr>
                         @if(count($posts) > 0)
                             <table class="table table-striped">
                                 <tr>

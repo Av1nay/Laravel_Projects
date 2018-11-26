@@ -11,7 +11,7 @@
         {{session('success')}}
     </div>
 @endif
-@if (session('eroor'))
+@if (session('error'))
     <div class="alert alert-danger">
         {{session('error')}}
     </div>
