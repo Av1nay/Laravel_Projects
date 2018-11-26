@@ -4,6 +4,7 @@
     <div class="card-body">
         <a href="/posts" class="btn btn-light">Go Back</a><br><br>
         <h1>{{$post->title}}</h1>
+        <img style="width:100%" src="/storage/coverImages/{{$post->coverImage}}" alt="coverImage">
         <div>
             {!!$post->body!!}
         </div>
