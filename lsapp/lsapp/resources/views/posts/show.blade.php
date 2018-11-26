@@ -2,13 +2,13 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <a href="/posts" class="btn btn-primary">Go Back</a><br><br>
+        <a href="/posts" class="btn btn-light">Go Back</a><br><br>
         <h1>{{$post->title}}</h1>
         <div>
             {!!$post->body!!}
         </div>
         <hr>
-        <small>Written on: {{$post->created_at}}</small>
+    <small>Written on: {{$post->created_at}} by {{$post->user->name}}</small>
         <hr>
     <a href="/posts/{{$post->id}}/edit" class="btn btn-light">Edit</a>
     {!!Form::open(['action' => ['PostsController@destroy',$post->id],'method' => 'POST','class' => 'float-right'])!!}
