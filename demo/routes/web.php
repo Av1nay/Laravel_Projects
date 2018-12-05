@@ -11,6 +11,20 @@
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
 });
+ */
+//register index page or home page of the site
+Route::get('/', 'PageController@index');
+
+//register contact page through controller
+Route::get('/contact', 'PageController@contact');
+
+//register posts page throught controller
+//Route::get('/posts', 'PostsController@index');
+
+//register posts reosurces of postscontroller
+Route::resource('posts','PostsController');
+
+
