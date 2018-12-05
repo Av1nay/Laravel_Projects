@@ -14,6 +14,7 @@
             </div>
             <br>
         @endforeach
+        {{ $posts->links() }}
     @else
         <p>OOPS! No posts found!!</p>
     @endif
