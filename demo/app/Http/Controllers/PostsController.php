@@ -26,7 +26,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return ('{{<h1>created>/h1>}}');
+        return view ('posts.create');
     }
 
     /**
