@@ -21,6 +21,11 @@
                         <a class="nav-link" href="/posts">Blogs</a>
                 </li>          
             </ul>
+            <ul class="navbar-nav mr auto">
+                <li>
+                    <a href="/posts/create" class="nav-link">Create</a>
+                </li>
+            </ul>
             {{-- <ul class="navbar navbar-nav ml-auto">
                 <!-- Right Side Of Navbar -->
                 <!-- Authentication Links -->
