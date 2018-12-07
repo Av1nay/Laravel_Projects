@@ -42,7 +42,14 @@ class PostsController extends Controller
             'title' =>'required',
             'description' => 'required'
         ]);
-        return request()->all();
+        //create post 
+
+        $posts = new Post;
+        $posts -> title = $request -> input('title');
+        $posts -> description = $request ->input('description');
+        $posts -> save();
+
+        return redirect('/posts');
     }
 
     /**

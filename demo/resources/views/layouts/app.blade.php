@@ -66,7 +66,13 @@
     <body>
         @include('include.navbar')
         <div class="container">
+            @include('include.messages')
             @yield('content')
         </div>
+        {{-- srcipt added for ckeditor --}}
+        <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace( 'article-ckeditor' );
+        </script>
     </body>
 </html>
