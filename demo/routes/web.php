@@ -27,4 +27,6 @@ Route::get('/contact', 'PageController@contact');
 //register posts reosurces of postscontroller
 Route::resource('posts','PostsController');
 
+//register create page through postscontroller
+Route::post('/create','postsController@create');
 
