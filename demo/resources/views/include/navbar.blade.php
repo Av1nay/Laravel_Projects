@@ -21,13 +21,7 @@
                         <a class="nav-link" href="/posts">Blogs</a>
                 </li>          
             </ul>
-            <ul class="navbar-nav mr auto">
-                <li>
-                    <a href="/posts/create" class="nav-link">Create</a>
-                </li>
-            </ul>
-            {{-- <ul class="navbar navbar-nav ml-auto">
-                <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
@@ -45,7 +39,6 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a href="/dashboard" class="dropdown-item">Dashboard</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
@@ -58,7 +51,7 @@
                         </div>
                     </li>
                 @endguest
-            </ul> --}}
+            </ul>
         </div>
     </div>
 </nav>

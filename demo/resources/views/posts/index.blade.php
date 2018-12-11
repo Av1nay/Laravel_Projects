@@ -9,11 +9,12 @@
                 <h2 class="card-title "><a href="/posts/{{$post -> id}}"> {{$post ->title}}</a></h2>
                     <small class="card-subtitle text-muted">Written on : {{$post -> created_at}}</small>
                     <hr>
-                    <p class="card-text h4">{!! $post -> description !!}</p>
+                    <div class="card-text h4">{!! $post -> description !!}</div>
                 </div>
             </div>
             <br>
         @endforeach
+        {{-- pagination links for the post --}}
         {{ $posts->links() }}
     @else
         <p>OOPS! No posts found!!</p>

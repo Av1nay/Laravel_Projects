@@ -28,5 +28,9 @@ Route::get('/contact', 'PageController@contact');
 Route::resource('posts','PostsController');
 
 //register create page through postscontroller
-Route::post('/create','postsController@create');
+Route::post('/create','PostsController@create');
 
+
+Auth::routes();
+
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
