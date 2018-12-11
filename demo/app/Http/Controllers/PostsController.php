@@ -49,7 +49,7 @@ class PostsController extends Controller
         $posts -> description = $request ->input('description');
         $posts -> save();
 
-        return redirect('/posts');
+        return redirect('/posts') -> with('success','Post Created');
     }
 
     /**
@@ -72,7 +72,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view ('/posts.edit', compact('post'));
     }
 
     /**
@@ -84,7 +85,23 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,
+        [
+            'title' =>'required',
+            'description' => 'required'
+        ]);
+        //Update post 
+
+        $posts = Post::find($id);
+        $posts->title = $request->input('title');
+        $posts->description = $request->input('description');
+        $posts->save();
+
+        /* 
+        can be written in the following ways as well
+        return redirect('/posts',compact('success','Post Updated')); 
+        */
+        return redirect('/posts')->with('success','Post Updated');
     }
 
     /**
@@ -95,6 +112,8 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        return redirect('/posts')->with('success','Post Removed!!');
     }
 }
