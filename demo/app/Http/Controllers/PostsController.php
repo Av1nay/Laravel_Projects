@@ -47,6 +47,8 @@ class PostsController extends Controller
         $posts = new Post;
         $posts -> title = $request -> input('title');
         $posts -> description = $request ->input('description');
+        //store user_id to the the table posts for respective posts of respective user
+        $posts->user_id = auth()->user()->id;
         $posts -> save();
 
         return redirect('/posts') -> with('success','Post Created');
