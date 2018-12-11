@@ -8,6 +8,18 @@ use App\Post;
 class PostsController extends Controller
 {
     /**
+     * Create a new controller instance.
+     * 
+     * @return void
+     * 
+     */
+    public function __construct()
+    {
+        $this->middleware('auth',['except' => ['index','show']]);
+    }
+
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -75,6 +87,12 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+
+        //Checks if user is correct user
+        if(auth()->user()->id !==$post->user_id){
+            return redirect('/posts')->with('error','Oops!! Unathorized Page.');
+        }
+
         return view ('/posts.edit', compact('post'));
     }
 
@@ -115,6 +133,10 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        //Checks if user is correct user
+        if(auth()->user()->id !==$post->user_id){
+            return redirect('/posts')->with('error','Oops!! Unathorized Page.');
+        }
         $post->delete();
         return redirect('/posts')->with('success','Post Removed!!');
     }
