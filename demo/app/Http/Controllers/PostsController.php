@@ -52,8 +52,24 @@ class PostsController extends Controller
         $this->validate($request,
         [
             'title' =>'required',
-            'description' => 'required'
+            'description' => 'required',
+            'coverImage' => 'image|nullable|max:25000'
         ]);
+
+        //handle file upload
+
+        if($request->hasFile('coverImage')){
+            //get filename with extension
+            $fileNameWithExt = $request->file('coverImage')->getClientOriginalName();
+            //get just filename
+            $filename = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            //get extension 
+            $extension = $request->file('coverImage')->getClientOriginalExtension();
+            //file name to store
+            $fileNameToStore=$filename.'_'.time().'.'.$extension;
+            //upload image
+            $path = $request->file('coverImage')->storeAs('public/cover_images',$fileNameToStore);
+        }
         //create post 
 
         $posts = new Post;
@@ -61,6 +77,8 @@ class PostsController extends Controller
         $posts -> description = $request ->input('description');
         //store user_id to the the table posts for respective posts of respective user
         $posts->user_id = auth()->user()->id;
+        //store filename of coverimage
+        $posts->coverImage = $fileNameToStore;
         $posts -> save();
 
         return redirect('/posts') -> with('success','Post Created');
@@ -108,13 +126,31 @@ class PostsController extends Controller
         $this->validate($request,
         [
             'title' =>'required',
-            'description' => 'required'
+            'description' => 'required',
+            'coverImage' => 'image|nullable|max:25000'
         ]);
-        //Update post 
 
+        //handle file upload
+
+        if($request->hasFile('coverImage')){
+            //get filename with extension
+            $fileNameWithExt = $request->file('coverImage')->getClientOriginalName();
+            //get just filename
+            $filename = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            //get extension 
+            $extension = $request->file('coverImage')->getClientOriginalExtension();
+            //file name to store
+            $fileNameToStore=$filename.'_'.time().'.'.$extension;
+            //upload image
+            $path = $request->file('coverImage')->storeAs('public/cover_images',$fileNameToStore);
+        }
+        //Update post 
         $posts = Post::find($id);
         $posts->title = $request->input('title');
         $posts->description = $request->input('description');
+        if($request->hasFile('coverImage')){
+            $posts->coverImage = $fileNameToStore;
+        }
         $posts->save();
 
         /* 

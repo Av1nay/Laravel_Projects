@@ -5,7 +5,12 @@
     <h1 class="mt-3">{{$post -> title}}</h1>
     <small class="card-subtitle text-muted">Written on : {{$post -> created_at}} by <strong>{{$post->user->name}}</strong></small>
     <hr>
-    <div class="card-text h4">{{ strip_tags($post -> description) }}</div>
+    @if ($post->coverImage != false)
+        <div class="card-img">
+            <img style="width:100%" src="/storage/cover_images/{{$post->coverImage}}" >
+        </div>
+    @endif
+    <div class="card-text h4 my-4">{!!($post -> description) !!}</div>
     {{-- check if the user is a guest --}}
     @if (!Auth::guest())
         @if (Auth::user()->id == $post->user_id)

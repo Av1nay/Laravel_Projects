@@ -69,14 +69,15 @@
         </style>
 </head>
 <body>
-        @include('include.navbar')
-        <div class="container">
-            <main class="py-4">
-                @include('include.messages')
-                @yield('content')
-            </main>
-        </div>
-
+    <div class="app">
+            @include('include.navbar')
+            <div class="container">
+                <main class="py-4">
+                    @include('include.messages')
+                    @yield('content')
+                </main>
+            </div>
+    </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
         {{-- srcipt added for ckeditor --}}
