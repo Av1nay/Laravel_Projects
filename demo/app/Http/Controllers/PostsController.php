@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Post;
 
 class PostsController extends Controller
@@ -173,6 +174,9 @@ class PostsController extends Controller
         if(auth()->user()->id !==$post->user_id){
             return redirect('/posts')->with('error','Oops!! Unathorized Page.');
         }
+        // delete image
+        Storage::delete('/public/cover_images/'.$post->coverImage);
+
         $post->delete();
         return redirect('/posts')->with('success','Post Removed!!');
     }
